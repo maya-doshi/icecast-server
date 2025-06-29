@@ -904,7 +904,11 @@ static inline xmlNodePtr __add_listener(client_t        *client,
     xmlSetProp(node, XMLSTR("id"), XMLSTR(buf));
     xmlNewTextChild(node, NULL, XMLSTR(mode == OMODE_LEGACY ? "ID" : "id"), XMLSTR(buf));
 
-    xmlNewTextChild(node, NULL, XMLSTR(mode == OMODE_LEGACY ? "IP" : "ip"), XMLSTR(client->con->ip));
+    tmp = httpp_getvar(client->parser, "x-forwarded-for");
+    if (tmp)
+        xmlNewTextChild(node, NULL, XMLSTR(mode == OMODE_LEGACY ? "IP" : "ip"), XMLSTR(tmp));
+    else
+        xmlNewTextChild(node, NULL, XMLSTR(mode == OMODE_LEGACY ? "IP" : "ip"), XMLSTR(client->con->ip));
 
     tmp = httpp_getvar(client->parser, "user-agent");
     if (tmp)

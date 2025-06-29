@@ -145,7 +145,7 @@ void logging_access(client_t *client)
     struct tm thetime;
     time_t now;
     time_t stayed;
-    const char *referrer, *user_agent, *username;
+    const char *referrer, *user_agent, *username, *forw_ip;
 
     now = time(NULL);
 
@@ -172,10 +172,15 @@ void logging_access(client_t *client)
     user_agent = httpp_getvar (client->parser, "user-agent");
     if (user_agent == NULL)
         user_agent = "-";
+    
+    forw_ip = httpp_getvar (client->parser, "x-forwarded-for");
+    if (forw_ip == NULL)
+        forw_ip = "-";
 
     log_write_direct (accesslog,
-            "%s - %H [%s] \"%H %H %H/%H\" %d %llu \"% H\" \"% H\" %llu",
+            "%s (%s) - %H [%s] \"%H %H %H/%H\" %d %llu \"% H\" \"% H\" %llu",
             client->con->ip,
+            forw_ip,
             username,
             datebuf,
             httpp_getvar (client->parser, HTTPP_VAR_REQ_TYPE),
