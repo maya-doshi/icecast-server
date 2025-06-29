@@ -5,6 +5,8 @@ html, body {
     line-height: 1;
     -webkit-text-size-adjust:100%; -moz-text-size-adjust:100%; -ms-text-size-adjust:100%;
     height: 100%;
+    background-color: #282828;
+    color: #ebdbb2;
 }
 
 body {
@@ -22,17 +24,17 @@ body > main {
 
 #main-nav {
     display: block;
-    background: #23282c;
+    background: #3c3836;
     overflow: hidden;
     padding: 0.5em 2.5em;
-    border-bottom: 2px #29495C solid;
+    border-bottom: 2px solid #8ec07c;
 }
 
 #main-nav h1 {
     font: normal 16px -apple-system, sans-serif;
     vertical-align: middle;
     display: inline;
-    color: #DDD;
+    color: #ebdbb2;
     margin: 0;
 }
 
@@ -64,11 +66,11 @@ body > main {
     font: normal 16px -apple-system, sans-serif;
     position: relative;
     line-height: 32px;
-    color: #DDD;
+    color: #ebdbb2;
 }
 
 #main-nav > ul > li > a:hover {
-    color: #FFF;
+    color: #ffffff;
 }
 
 /* Fancy animation */
@@ -79,13 +81,13 @@ body > main {
     width: 100%;
     bottom: -2px;
     left: 0;
-    border-bottom: 2px #4f8cb0 solid;
+    border-bottom: 2px solid #8ec07c;
     transition: all 0.2s ease-in-out 0s;
     transform: scaleX(0);
 }
 
 #main-nav > ul > li.adminlink > a:after {
-    border-bottom: 2px #ff704d solid;
+    border-bottom: 2px solid #fb4934;
 }
 
 #main-nav > ul > li > a:hover:after {
@@ -106,7 +108,6 @@ nav > ul > li {
 }
 
 /* Navigation lists style */
-/* TODO unify with the above */
 
 div.nav ul {
     list-style: none;
@@ -120,7 +121,7 @@ div.nav ul > li {
 }
 
 div.nav ul > li > a {
-    color: #29495C;
+    color: #8ec07c;
 }
 
 div.nav > h4 {
@@ -142,9 +143,9 @@ ul.boxnav > li {
 }
 
 ul.boxnav > li > a, ul.boxnav > li input[type='submit'] {
-    background-color: #4f8cb0;
+    background-color: #8ec07c;
     border: none;
-    color: white;
+    color: #282828;
     padding: 0.5em 1em;
     margin-top: 0.2em;
     text-align: center;
@@ -153,11 +154,11 @@ ul.boxnav > li > a, ul.boxnav > li input[type='submit'] {
 }
 
 ul.boxnav > li.critical > a, a.critical, input[type='submit'].critical {
-    background-color: #ff704d !important;
+    background-color: #fb4934 !important;
 }
 
 ul.boxnav > li.disabled > a, a.disabled, input[type='submit'].disabled {
-    background-color: #a4a4a4 !important;
+    background-color: #928374 !important;
 }
 
 th.actions {
@@ -170,9 +171,9 @@ td.actions {
 }
 
 td.actions > a {
-    background-color: #4f8cb0;
+    background-color: #8ec07c;
     border: none;
-    color: white;
+    color: #282828;
     padding: 0.5em;
     margin-top: 0.2em;
     text-align: center;
@@ -199,9 +200,9 @@ ul.playlists > li {
 }
 
 ul.playlists > li > a {
-    background-color: #4CAF50;
+    background-color: #8ec07c;
     border: none;
-    color: white;
+    color: #282828;
     padding: 0.5em 1em;
     margin-top: 0.2em;
     text-align: center;
@@ -217,26 +218,19 @@ ul.playlists > li > a::before {
 
 section.box {
     padding: 1em;
-    background: #F5F5F5;
-    border: 1px #DDD solid;
+    background: #3c3836;
+    border: 1px solid #665c54;
     margin-bottom: 1em;
-}
-
-section.box h2,
-section.box h3,
-section.box h4,
-section.box h5 {
-    /*color: #DDD;*/
+    color: #ebdbb2;
 }
 
 section.box h3 {
-    border-bottom: 2px #888 solid;
+    border-bottom: 2px solid #928374;
 }
 
 section.box .box_title {
     margin-top: 0;
     padding-bottom: 5px;
-    /*border-bottom: 2px #29495C solid;*/
 }
 
 /* Table styling */
@@ -252,11 +246,11 @@ section.box table tr:first-child {
 }
 
 section.box table tr {
-    border-top: 1px solid #e7e7e7;
+    border-top: 1px solid #504945;
 }
 
 section.box table tbody tr:hover {
-    background-color: #cccccc;
+    background-color: #504945;
 }
 
 section.box table tr td {
@@ -289,22 +283,30 @@ main {
     margin: 0 auto;
 }
 
+a:link {
+    color: #8ec07c;
+}
+
+a:visited {
+    color: #8ec07c;
+}
+
 footer {
-    border-top: 2px #29495C solid;
+    border-top: 2px solid #8ec07c;
     padding: 0.25em 1em;
-    color: #CCC;
+    color: #a89984;
     text-align: center;
-    background: #23282c;
+    background: #3c3836;
 }
 
 footer a {
-    color: #EEE;
+    color: #ebdbb2;
 }
 
 /* General elements styling */
 
 h1, h2, h3, h5 {
-    color: #001826;
+    color: #ebdbb2;
 }
 
 aside {
@@ -333,10 +335,13 @@ aside {
 
 .codeblock > li > pre {
     margin: 0;
+    background-color: #3c3836;
+    color: #ebdbb2;
+    padding: 0.5em;
 }
 
 .codeblock > li > pre:hover {
-    background-color: #cccccc;
+    background-color: #504945;
 }
 
 .barmeter > *:first-child {
@@ -344,7 +349,7 @@ aside {
     display: inline;
 }
 .barmeter > *:nth-child(2) {
-    background: #4f8cb0;
+    background: #8ec07c;
     display: block;
 }
 
@@ -389,40 +394,43 @@ aside {
 }
 
 .colour-red {
-    background: red;
+    background: #fb4934;
 }
 
 .colour-yellow {
-    background: yellow;
+    background: #fabd2f;
 }
 
 .colour-green {
-    background: limegreen;
+    background: #b8bb26;
 }
 
 /* Error messages */
 
 .error {
-    background-color: #FF9999;
+    background-color: #cc241d;
     padding: .5em 2em;
     border: 1px solid #5C2949;
+    color: #fbf1c7;
 }
 .error a {
-    color: #5C2949;
+    color: #fbf1c7;
 }
 .error a:hover {
     text-decoration: none;
 }
 
 .warning {
-    border: 1px solid #5C2949;
-    background-color: #FFFF99;
+    border: 1px solid #fabd2f;
+    background-color: #d79921;
+    color: #282828;
     padding: .5em 2em;
 }
 
 .info {
-    border: 1px solid #5C2949;
-    background-color: #ABBBFF;
+    border: 1px solid #458588;
+    background-color: #83a598;
+    color: #282828;
     padding: .5em 2em;
 }
 
