@@ -142,6 +142,7 @@ int get_clf_time (char *buffer, unsigned len, struct tm *t)
 void logging_access(client_t *client)
 {
     char datebuf[128];
+    char ipbuf[128];
     struct tm thetime;
     time_t now;
     time_t stayed;
@@ -175,12 +176,13 @@ void logging_access(client_t *client)
     
     forw_ip = httpp_getvar (client->parser, "x-forwarded-for");
     if (forw_ip == NULL)
-        forw_ip = "-";
+        snprintf(ipbuf, sizeof(ipbuf), "%s", client->con->ip);
+    else
+        snprintf(ipbuf, sizeof(ipbuf), "%s (%s)", forw_ip, client->con->ip);
 
     log_write_direct (accesslog,
-            "%s (%s) - %H [%s] \"%H %H %H/%H\" %d %llu \"% H\" \"% H\" %llu",
-            client->con->ip,
-            forw_ip,
+            "%s - %H [%s] \"%H %H %H/%H\" %d %llu \"% H\" \"% H\" %llu",
+            ipbuf,
             username,
             datebuf,
             httpp_getvar (client->parser, HTTPP_VAR_REQ_TYPE),
