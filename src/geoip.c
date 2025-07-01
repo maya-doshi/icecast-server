@@ -87,6 +87,7 @@ void geoip_lookup_client(geoip_db_t *self, client_t * client)
     int gai_error, mmdb_error;
     MMDB_lookup_result_s result;
     connection_t *con;
+    const char *ip;
 
     if (!self || !client)
         return;
@@ -94,9 +95,14 @@ void geoip_lookup_client(geoip_db_t *self, client_t * client)
     if (!client->con && !client->con->ip)
         return;
 
-    con = client->con;
+    ip = httpp_getvar (client->parser, "x-forwarded-for");
 
-    result = MMDB_lookup_string(&(self->mmdb), client->con->ip, &gai_error, &mmdb_error);
+    if (!ip)
+        result = MMDB_lookup_string(&(self->mmdb), client->con->ip, &gai_error, &mmdb_error);
+    else
+        result = MMDB_lookup_string(&(self->mmdb), ip, &gai_error, &mmdb_error);
+
+    con = client->con;
 
     if (gai_error || mmdb_error != MMDB_SUCCESS)
         return;
