@@ -46,6 +46,7 @@ pkgs.mkShell {
     libkate
     libopus
     libpthread-stubs
+    libmaxminddb
     libigloo
   ];
 
