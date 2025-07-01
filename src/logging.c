@@ -173,7 +173,7 @@ void logging_access(client_t *client)
     user_agent = httpp_getvar (client->parser, "user-agent");
     if (user_agent == NULL)
         user_agent = "-";
-    
+
     forw_ip = httpp_getvar (client->parser, "x-forwarded-for");
     if (forw_ip == NULL)
         snprintf(ipbuf, sizeof(ipbuf), "%s", client->con->ip);
